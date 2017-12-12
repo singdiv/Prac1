@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="service.js"></script>
+    <title>Prac1</title>
+  </head>
+  <body ng-app='serviceApp'>
+      <h1>Shopping Cart</h1>
+      <div ng-controller='ShoppingAdd as shopAdd'>
+        <input type="text" placeholder="Item Name" ng-model='shopAdd.name'>
+        <input type="number" placeholder="Item Quantity" ng-model='shopAdd.quan'>
+        <button type="button" ng-click='shopAdd.addItem()'>Add to Cart</button>
+
+      </div>
+
+      <div ng-controller='ShoppingShow as shopShow'>
+          <h2> Items in Cart are: </h2>
+        <ol>
+          <li ng-repeat='item in shopShow.items'>
+              {{item.name}} and Quantity is {{item.quantity}}
+          <button type="button" ng-click='shopShow.removeItem($index)'>Remove Item</button>
+          </li>
+        </ol>
+      </div>
+  </body>
+</html>
